@@ -115,6 +115,8 @@ Window.Selectable = true
 Window.Size = UDim2.new(0, 200, 0, 200)
 Window.Image = "rbxassetid://2851926732"
 Window.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
+Window.ImageTransparency = 0.4
+Window.BackgroundTransparency = 0.4
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
 
@@ -142,7 +144,7 @@ Toggle.Position = UDim2.new(0, 5, 0, -2)
 Toggle.Rotation = 90
 Toggle.Size = UDim2.new(0, 20, 0, 20)
 Toggle.ZIndex = 2
-Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=79182952572284"
+Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=74232236208539"
 
 Base.Name = "Base"
 Base.Parent = Bar
@@ -182,7 +184,7 @@ Title.Size = UDim2.new(0, 200, 0, 20)
 Title.Font = Enum.Font.Garamond
 Title.Text = "Gamer Time"
 Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextSize = 20
+Title.TextSize = 17
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
 TabSelection.Name = "TabSelection"
@@ -952,6 +954,10 @@ function library:AddWindow(title, options)
 	local Window = Prefabs:FindFirstChild("Window"):Clone()
 	Window.Parent = Windows
 	Window:FindFirstChild("Title").Text = title
+   local corner = Instance.new("UICorner")
+  corner.CornerRadius = UDim.new(0, 12)  -- Puedes cambiar 12 por el valor que quieras
+  corner.Parent = Window
+
 	Window.Size = UDim2.new(0, options.min_size.X, 0, options.min_size.Y)
 	Window.ZIndex = Window.ZIndex + (windows * 10)
 
